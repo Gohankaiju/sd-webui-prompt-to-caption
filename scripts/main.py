@@ -67,7 +67,7 @@ def caption_with_blip(selection, folder_path=None, image=None):
         # フォルダ内の画像ファイルを取得
         image_files = [file for file in os.listdir(folder_path) if file.lower().endswith(('.png', '.jpg', '.jpeg'))]
 
-        for image_file in image_files:
+        for image_file in tqdm(image_files, desc='Processing images', unit='image'):
             image_path = os.path.join(folder_path, image_file)
             img = Image.open(image_path)
 

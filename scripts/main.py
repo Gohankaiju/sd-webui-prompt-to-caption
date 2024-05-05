@@ -8,7 +8,7 @@ from PIL import Image
 from tqdm import tqdm  
 from modules import script_callbacks
 import torchvision.transforms as transforms
-from lavis.models import load_model_and_preprocess
+#from lavis.models import load_model_and_preprocess
 from transformers import BlipProcessor, BlipForConditionalGeneration
 
 global_model = None
@@ -16,6 +16,8 @@ global_vis_processors = None
 
 #### Promptの処理 ####
 def prompt_to_caption(folder_path, check=False):
+    print("Folder Path:", folder_path)
+    print("Enable BLIP:", check)
     # BLIPの初期化
     processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
     model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
@@ -45,7 +47,7 @@ def prompt_to_caption(folder_path, check=False):
             f.write(prompt)
 
     print("All caption files have been created.")
-    return("Done!!")
+    return "All caption files have been created."
 
 #### BLIPの処理 ####
 def caption_with_blip(selection, folder_path=None, image=None):
@@ -167,7 +169,7 @@ def on_ui_tabs():
                 with gr.Row():
                     prompt_fpath = gr.Textbox(label="image folder path")
                 enable_blip = gr.Checkbox(label="Enable BLIP", info="Using BLIP if metadata is empty")
-                prompt_gen_btn = gr.UploadButton("Gen", variant="primary")
+                prompt_gen_btn = gr.Button("Gen", variant="primary")
                 prompt_status = gr.Label()
             # BLIPタブ
             with gr.TabItem("BLIP"):
@@ -175,7 +177,7 @@ def on_ui_tabs():
                     with gr.Column():
                         selection = gr.Radio(["Batch process", "Single Image"], label="Choose Operation Mode")
                         blip_fpath = gr.Textbox(label="image folder path")
-                        blip_gen_btn = gr.UploadButton("Gen", variant="primary")
+                        blip_gen_btn = gr.Button("Gen", variant="primary")
                     with gr.Column():
                         blip_singleimage = gr.Image(label="Image to Caption")                 
                 blip_status = gr.Label()

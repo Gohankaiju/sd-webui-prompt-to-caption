@@ -7,6 +7,8 @@
 
 ## How to Use
 ### Prompt
+![2](https://github.com/Gohankaiju/sd-webui-prompt-to-caption/assets/167270541/99ed0d60-e54e-4d02-972b-d5ec41ec284e)
+
  - Specify the path of image folder and click the gen button.
 
  - If "Enable BLIP" is checked, BLIP caption will be created on images for which metadata could not be obtained. (If Enable BLIP is not checked, an empty text file will be created.)

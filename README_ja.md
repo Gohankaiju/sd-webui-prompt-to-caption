@@ -23,7 +23,7 @@
 ### BLIP
 ![1](https://github.com/Gohankaiju/sd-webui-prompt-to-caption/assets/167270541/9a98f94c-d465-477a-9c8d-97f72146653e)
 
- - おまけとしてBLIPによるキャプション生成が可能です。
+ - おまけとして、BLIPによるキャプション生成が可能です。
 
  - "Batch Process" によってフォルダ内の画像全てにキャプションファイルを作成、または"Single image" によって一枚の画像に対してキャプションを表示することができます。
 
